@@ -16,10 +16,10 @@ public class Employees_Chapter04 {
             con = DriverManager.getConnection(
                 "jdbc:mysql://localhost/challenge_java",
                 "root",
-                /*提出用パスワード割愛*/
+                ""/*提出により割愛*/
             );
 
-            System.out.println("データベース接続成功");
+            System.out.println("データベース接続成功" + con);
 
             // SQLクエリを準備
             statement = con.createStatement();
