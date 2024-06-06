@@ -37,22 +37,22 @@ public class Posts_Chapter07 {
                     """;
            
 
-                      // SQLクエリを実行（DBMSに送信）
+            // SQLクエリを実行（DBMSに送信）
             System.out.println("レコード追加を実行します");
             int rowCnt = statement.executeUpdate(sql);
             System.out.println(rowCnt + "件のレコードが追加されました");
             
-         // ユーザーIDが1002のレコードを検索して出力
+            // ユーザーIDが1002のレコードを検索して出力
             sql = "SELECT * FROM posts WHERE user_id = 1002;";
             ResultSet result = statement.executeQuery(sql);  
             System.out.println("ユーザーIDが1002のレコードを検索しました");
-            sql = "SELECT * FROM posts WHERE user_id = 1002";
+            
 
             while (result.next()) {
                 Date postedAt = result.getDate("posted_at");
                 String postContent = result.getString("post_content");
                 int likes = result.getInt("likes");
-                System.out.println(result + "件目：投稿日時=" + postedAt + "／投稿内容=" + postContent + "／いいね数=" + likes);
+                System.out.println(result.getRow() + "件目：投稿日時=" + postedAt + "／投稿内容=" + postContent + "／いいね数=" + likes);
             }
 
         } catch (SQLException e) {
